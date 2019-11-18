@@ -1,0 +1,15 @@
+{
+  "name": "javascript-instruction-jbc201909",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ch02_prj1_java_student_registration.js",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
