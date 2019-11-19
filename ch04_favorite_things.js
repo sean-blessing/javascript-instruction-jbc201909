@@ -24,8 +24,23 @@ while (choice=="y") {
 
 console.log("My list of favorites: ");
 for (let f of favorites) {
-    console.log(`I like ${f.thing} because ${f.why}.`);
+    displayFavorite(f);
 }
 
+console.log("Retrieve a favorite by id...");
+// 1) prompt user for id to retrieve
+let idRetrieved = readline.questionInt("Which favorite (by id) do you want to retrieve?");
+// 2) get that favorite (that matches the id entered) 
+//    from the list and display
+for (let f of favorites) {
+    if (f.id==idRetrieved) {
+        // this is the favorite we want!
+        displayFavorite(f);
+    }
+}
+// 3) create a function for the display - reduce redundancy
+function displayFavorite(f) {
+    console.log(`I like ${f.id} - ${f.thing} because ${f.why}.`);
+}
 
 console.log("Bye");
