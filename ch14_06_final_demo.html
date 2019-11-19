@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="theTag">
+        This is a paragraph tag!
+    </p>
+    <input id="theNbr" type="text" value="0">
+    <button onclick="doIt()">Do It!</button>
+
+<script>
+    // define a method which will
+    /*  1) change the content of theTag
+        2) increment the value displayed in theNbr
+        3) change the font, size and style of theTag
+    */
+   let nbr = 0;
+   function doIt() {
+       let theTag = document.getElementById("theTag");
+       theTag.innerHTML = "I changed theTag!!!";
+       theTag.style.color = "red";
+       theTag.style.fontStyle = "italic";
+       theTag.style.fontSize = "2.5em";
+       nbr++;
+       document.getElementById("theNbr").value = nbr;
+   }
+    
+</script>
+</body>
+</html>

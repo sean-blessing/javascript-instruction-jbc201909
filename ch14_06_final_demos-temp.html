@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="theTag">
+        This is a paragraph tag.
+    </p>
+    <button onclick="changeIt()">Change It!</button>
+    <input id="theNbr" type="text" value="0">
+    <script>
+        let nbr = 0;
+        function changeIt() {
+            nbr++;
+            let ptag = document.getElementById("theTag");
+            ptag.style.color = "red";
+            //ptag.style.cssText+="color:red"; 
+            ptag.style.fontStyle = "italic";
+            ptag.style.fontSize = "2.5em";
+            ptag.innerHTML = "I changed this p tag!";
+            document.getElementById("theNbr").value = nbr;
+        }
+
+    </script>
+</body>
+
+</html>
