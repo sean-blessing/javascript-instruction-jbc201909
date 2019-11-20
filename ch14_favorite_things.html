@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Favorites App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
     <h1>My Favorites</h1>
@@ -13,7 +14,7 @@
     <label>Favorite Why?: </label><input id="why_in" type="text" value="" style="display:inline-block"><br>
     <button onclick="addFavorite()">Add Favorite</button><br>
     <h2>List of Favorites</h2>
-    <table>
+    <table class="table">
         <thead>
             <tr><th>ID</th><th>Favorite</th><th>Why?</th></tr>
         </thead>
@@ -27,42 +28,61 @@
         displayTable();
 
         function addFavorite() {
+            let id_cntl = document.getElementById("id_in");
+            let thing_cntl = document.getElementById("thing_in");
+            let why_cntl = document.getElementById("why_in");
             let favorite = {
-                id: document.getElementById("id_in").value,
-                thing: document.getElementById("thing_in").value,
-                why: document.getElementById("why_in").value
+                id: id_cntl.value,
+                thing: thing_cntl.value,
+                why: why_cntl.value
             };
             favorites.push(favorite);
-            console.log(favorites);
+            //console.log(favorites);
             displayTable();
+            
+            // clear text boxes after table is displayed
+            id_cntl.value="";
+            thing_cntl.value="";
+            why_cntl.value="";
+            
         } 
 
         function displayTable() {
             let tbdy = document.getElementById("tbFav");
+            let id_val = 'n/a';
+            let thing_val = 'No favorites yet!';
+            let why_val = "n/a";
+            tbdy.innerHTML = "";
             //do we have any favorites yet?
             if (favorites.length!=0) {
-                // yes - create tbody
-
+                // yes - create rows of favorites
+                for (let favorite of favorites) {
+                    addTableBodyRow(tbdy, favorite.id, favorite.thing, favorite.why);
+                }
             }
             else {
                 // no - display a row that says 'No favorites yet'
-                let tr = document.createElement('tr');
-                // first td
-                let td1 = document.createElement('td');
-                td1.appendChild(document.createTextNode('n/a'));
-                // could we have used innerhtml??
-                tr.appendChild(td1);
-                // 2nd td
-                let td2 = document.createElement('td');
-                td2.appendChild(document.createTextNode('No favorites yet!'));
-                tr.appendChild(td2);
-                // 3rd td
-                let td3 = document.createElement('td');
-                td3.appendChild(document.createTextNode('n/a'));
-                tr.appendChild(td3);
-                // add the row to tbody
-                tbdy.appendChild(tr);
+                addTableBodyRow(tbdy, id_val, thing_val, why_val);
             }
+        }
+
+        function addTableBodyRow(tbdy, id_val, thing_val, why_val) {
+            let tr = document.createElement('tr');
+            // first td
+            let td1 = document.createElement('td');
+            td1.appendChild(document.createTextNode(id_val));
+            // could we have used innerhtml??
+            tr.appendChild(td1);
+            // 2nd td
+            let td2 = document.createElement('td');
+            td2.appendChild(document.createTextNode(thing_val));
+            tr.appendChild(td2);
+            // 3rd td
+            let td3 = document.createElement('td');
+            td3.appendChild(document.createTextNode(why_val));
+            tr.appendChild(td3);
+            // add the row to tbody
+            tbdy.appendChild(tr);
 
         }
     </script>
