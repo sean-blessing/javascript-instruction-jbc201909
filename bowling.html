@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang='en'>
+<head><title></title>
+<style>* { text-align: center; font-size: 18pt; } </style>
+<script lang='javascript'>
+
+function fillArrayAndSum() {
+	var pCtrl = getRefById('array');
+	var sumCtrl = getRefById('sum');
+	var avgCtrl = getRefById('avg');
+
+	var arr = [];
+	for(var idx = 0; idx < 10; idx++) {
+		arr.push(getRandomNumber());
+	}
+
+	pCtrl.textContent = arr.join();
+	sumCtrl.value = sumArray(arr);
+	avgCtrl.value = calcAvg(arr);
+}
+
+function getRefById(id) {
+	return document.getElementById(id);
+}
+
+function getRandomNumber() {
+	return Math.floor(Math.random() * 11);
+}
+
+function sumArray(arr) {
+	var total = 0;
+	for(var idx = 0; idx < arr.length; idx++) {
+		total += arr[idx];
+	}
+	return total;
+}
+
+function calcAvg(arr) {
+	var sum = sumArray(arr);
+	var cnt = arr.length;
+	return sum / cnt;
+}
+
+</script>
+</head>
+<body>
+	<button onclick='fillArrayAndSum()'>Fill array then sum and average</button>
+	<div>
+		<p id='array'>
+			<span>The array goes here:</span><br /><br />
+		</p>	
+		<p><input id='sum' type='text'></input></p>
+		<p><input id='avg' type='text'></input></p>
+	</div>
+</body>
+</html>
