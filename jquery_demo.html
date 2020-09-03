@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <caption>A basic table</caption>
+            <td>td1</td>
+            <td>td2</td>
+            <td>td3</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <caption>Another basic table</caption>
+            <td>td1</td>
+            <td>td2</td>
+            <td>td3</td>
+        </tr>
+    </table>
+    <script>
+        // non jquery
+        //let tables = document.getElementsByTagName("table");
+        // jquery + js
+        // let tables = $("table");
+        // for (let i = 0; i < tables.length; i++) {
+        //     tables[i].style.border = "solid red 2px";
+        // }
+
+        // pure jquery
+        $("table").css("border","solid blue 2px");
+    </script>
+</body>
+
+</html>
